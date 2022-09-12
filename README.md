@@ -13,12 +13,15 @@ Edit the **blocklist** file to include website urls you want to block
 Add program-process names to the **forbbidenapps** file for applications that you want to block. Only do this if you know what you are doing
 
 Examples included in /examples
+
 ***Note** The application in its current stage will be detected as malware due to the lack of a license. Feel free to compile it if it does
 
 ## In Development
 
 Create an installer(Only portable rnw)
+
 Linux version
+
 A GUI (im too lazy if you can help pls dm)
 
 ## Disclaimer
