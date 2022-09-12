@@ -46,10 +46,12 @@ using namespace std;
 
 
 string BLOCKPATH = "127.0.0.1";
-string BLACKLISTFN = "src/blacklist";
-string BACKUPFN = "src/hosts_bl";
-string PROCESSFN = "src/processes";
-string FORBIDDENFN = "src/forbidden";
+
+string BLACKLISTFN = "src/blocklist";
+string FORBIDDENFN = "src/forbiddenapps";
+string BACKUPFN = "conf/hosts_bl";
+string PROCESSFN = "conf/processes";
+
 
 void display()
 {
