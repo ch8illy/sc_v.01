@@ -1,7 +1,7 @@
-# [Probation]
+# Probation
 
 <p align="center">
-    <img src="./.github/docs/screenshot.png" />
+    <img src="./.github/docs/screenshot.jpg" />
 </p>
 
 ## About
