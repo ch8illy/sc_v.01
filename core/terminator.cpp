@@ -39,6 +39,14 @@ void Terminator::kill()
     Paragraph tasks; tasks.processFileText(process_fn);
 
     vector<string> Tl = tasks.toVector('\n');
+
+    // vector<string> defaults{"HD-","steam","Zoom","msedge","Taskmgr","RiotClientServices","VALORANT"};
+    
+    // for(int i=0; i<defaults.size(); i++)
+    // {
+    //     Tl.push_back(defaults[i]);
+    // }
+
     string sip ("System Idle Process");
 
     int rmvi = 0;

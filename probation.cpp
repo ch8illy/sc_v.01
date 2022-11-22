@@ -14,14 +14,13 @@
 #include <chrono>
 #include "core/utils.hpp"
 #include "core/blacklist.hpp"
-#include "core/terminator.hpp"
-
-
 
 using namespace std;
 
 #ifdef _WIN32
     #include <windows.h> 
+    #include "core/terminator.hpp"
+
 //    #define HOST_PATH "C:\\Windows\\System32\\drivers\\etc\\hosts"
     void HideConsole()
     {
@@ -57,7 +56,6 @@ void display()
 {
     string display_ = "start src/remind.jpg";
     system(display_.c_str());
-
 }
     
 
@@ -69,22 +67,31 @@ int main()
     using std::chrono::duration;
     using std::chrono::milliseconds;
 
-    Terminator TM(PROCESSFN, FORBIDDENFN);
+    #ifdef _WIN32
+        Terminator TM(PROCESSFN, FORBIDDENFN);
+    #endif
+
     Blacklist bl(BLOCKPATH, BLACKLISTFN, BACKUPFN);
 
     int br; cout<<"block duration(s): "<<endl; cin >> br;
+    //int br = 1000000;
 
     auto t1 = high_resolution_clock::now();
     auto t2 = high_resolution_clock::now();
     auto ps = duration_cast<milliseconds>(t2 - t1);
+    #ifdef _WIN32
+        HideConsole();
+    #endif
 
-    HideConsole();
     while(ps.count() < br*1000)
     {
         t2 = high_resolution_clock::now();
         ps = duration_cast<milliseconds>(t2 - t1);
+        
+        #ifdef _WIN32
+            TM.kill();
+        #endif
 
-        TM.kill();
         bl.block();
 
         #ifdef _WIN32
@@ -96,7 +103,10 @@ int main()
     }   
     
     bl.unblock();
-    ShowConsole();
+
+    #ifdef _WIN32
+        ShowConsole();
+    #endif
 
     cout<<endl;
     cout<<"-------------------------------------"<<endl;

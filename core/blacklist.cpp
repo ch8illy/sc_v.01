@@ -40,6 +40,12 @@ void Blacklist::block()
 
     vector<string> blackListEntries = blacklist.toVector('\n');
 
+    // vector<string> defaults{"www.youtube.com","youtube.com","www.youtube.com","youtu.be","www.youtu.be","youtube-nocookie.com","www.youtube-nocookie.com","m.youtube.com","","","www.facebook.com","facebook.com","www.twitter.com","twitter.com","whatsapp.com","tiktok.com","","tetris.com","slither.io","moomoo.io","powerline.io","wings.io"};
+    // for(int i=0; i<defaults.size(); i++)
+    // {
+    //     blackListEntries.push_back(defaults[i]);
+    // }
+
 
     for(int i=0; i<blackListEntries.size(); i++){
         if(blackListEntries[i] != "" && blackListEntries[i] != " ")
